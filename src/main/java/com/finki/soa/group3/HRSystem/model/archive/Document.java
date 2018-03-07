@@ -34,7 +34,6 @@ public class Document {
     private LocalDateTime notificationDate;
     //Kontekst na dokumentot
 
-
     private String context;
     //potpisnici od HR timot dokolku gi ima
     //@OneToMany
@@ -54,6 +53,86 @@ public class Document {
 
     public Document() {
 
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getLabel() {
+        return label;
+    }
+
+    public void setLabel(String label) {
+        this.label = label;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public LocalDateTime getDateOfCreation() {
+        return dateOfCreation;
+    }
+
+    public void setDateOfCreation(LocalDateTime dateOfCreation) {
+        this.dateOfCreation = dateOfCreation;
+    }
+
+    public LocalDateTime getDateOfExpiration() {
+        return dateOfExpiration;
+    }
+
+    public void setDateOfExpiration(LocalDateTime dateOfExpiration) {
+        this.dateOfExpiration = dateOfExpiration;
+    }
+
+    public LocalDateTime getNotificationDate() {
+        return notificationDate;
+    }
+
+    public void setNotificationDate(LocalDateTime notificationDate) {
+        this.notificationDate = notificationDate;
+    }
+
+    public String getContext() {
+        return context;
+    }
+
+    public void setContext(String context) {
+        this.context = context;
+    }
+
+    public List<HrWorker> getHRSignatory() {
+        return HRSignatory;
+    }
+
+    public void setHRSignatory(List<HrWorker> HRSignatory) {
+        this.HRSignatory = HRSignatory;
+    }
+
+    public List<Person> getExternalSignatory() {
+        return ExternalSignatory;
+    }
+
+    public void setExternalSignatory(List<Person> externalSignatory) {
+        ExternalSignatory = externalSignatory;
+    }
+
+    public List<PreviousDocumentState> getPreviousStates() {
+        return previousStates;
+    }
+
+    public void setPreviousStates(List<PreviousDocumentState> previousStates) {
+        this.previousStates = previousStates;
     }
 
     public Document(String label, String description, LocalDateTime dateOfCreation, LocalDateTime dateOfExpiration, LocalDateTime notificationDate, String context, List<HrWorker> HRSignatory, List<Person> externalSignatory, List<PreviousDocumentState> previousStates) {
