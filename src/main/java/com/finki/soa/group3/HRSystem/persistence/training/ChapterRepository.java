@@ -1,6 +1,6 @@
-package com.finki.soa.group3.HRSystem.Training.repository;
+package com.finki.soa.group3.HRSystem.persistence.training;
 
-import com.finki.soa.group3.HRSystem.Training.Model.Chapter;
+import com.finki.soa.group3.HRSystem.model.training.Chapter;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

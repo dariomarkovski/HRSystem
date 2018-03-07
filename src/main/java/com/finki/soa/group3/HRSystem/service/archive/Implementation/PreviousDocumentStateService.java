@@ -2,7 +2,7 @@ package com.finki.soa.group3.HRSystem.service.archive.Implementation;
 
 import com.finki.soa.group3.HRSystem.model.archive.PreviousDocumentState;
 import com.finki.soa.group3.HRSystem.model.archive.exceptions.PreviousDocumentNotFoundException;
-import com.finki.soa.group3.HRSystem.persistance.archive.PreviousDocumentRepository;
+import com.finki.soa.group3.HRSystem.persistence.archive.PreviousDocumentRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;

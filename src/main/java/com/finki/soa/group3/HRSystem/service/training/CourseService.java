@@ -1,7 +1,6 @@
-package com.finki.soa.group3.HRSystem.Training.service;
+package com.finki.soa.group3.HRSystem.service.training;
 
-import com.finki.soa.group3.HRSystem.Training.Model.Category;
-import com.finki.soa.group3.HRSystem.Training.Model.Course;
+import com.finki.soa.group3.HRSystem.model.training.Course;
 import org.springframework.stereotype.Service;
 
 @Service

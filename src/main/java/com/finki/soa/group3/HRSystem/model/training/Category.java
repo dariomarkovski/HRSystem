@@ -1,7 +1,6 @@
-package com.finki.soa.group3.HRSystem.Training.Model;
+package com.finki.soa.group3.HRSystem.model.training;
 
 import javax.persistence.*;
-import java.net.URL;
 import java.util.List;
 
 @Entity

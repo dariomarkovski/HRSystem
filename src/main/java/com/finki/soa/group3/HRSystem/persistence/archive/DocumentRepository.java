@@ -1,4 +1,4 @@
-package com.finki.soa.group3.HRSystem.persistance.archive;
+package com.finki.soa.group3.HRSystem.persistence.archive;
 
 import com.finki.soa.group3.HRSystem.model.archive.Document;
 import org.springframework.data.repository.CrudRepository;

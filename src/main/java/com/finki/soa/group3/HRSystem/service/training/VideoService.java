@@ -1,6 +1,6 @@
-package com.finki.soa.group3.HRSystem.Training.service;
+package com.finki.soa.group3.HRSystem.service.training;
 
-import com.finki.soa.group3.HRSystem.Training.Model.Video;
+import com.finki.soa.group3.HRSystem.model.training.Video;
 import org.springframework.stereotype.Service;
 
 @Service

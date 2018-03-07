@@ -2,11 +2,10 @@ package com.finki.soa.group3.HRSystem.service.archive.Implementation;
 
 import com.finki.soa.group3.HRSystem.model.archive.Document;
 import com.finki.soa.group3.HRSystem.model.archive.exceptions.DocumentNotFoundException;
-import com.finki.soa.group3.HRSystem.persistance.archive.DocumentRepository;
+import com.finki.soa.group3.HRSystem.persistence.archive.DocumentRepository;
 import com.finki.soa.group3.HRSystem.service.archive.DocumentService;
 import org.springframework.stereotype.Service;
 
-import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Optional;
