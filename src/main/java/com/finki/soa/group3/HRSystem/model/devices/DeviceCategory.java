@@ -14,4 +14,17 @@ public class DeviceCategory {
 
     @OneToMany(mappedBy = "deviceCategory", cascade = CascadeType.ALL)
     private Set<Device> deviceSet;
+
+    public long getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
 }

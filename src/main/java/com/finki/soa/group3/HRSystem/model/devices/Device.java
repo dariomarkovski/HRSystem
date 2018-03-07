@@ -43,7 +43,57 @@ public class Device {
     @OneToMany(mappedBy = "device", cascade = CascadeType.ALL)
     private Set<Issue> issueSet;
 
+    public long getId() {
+        return id;
+    }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public DeviceCategory getDeviceCategory() {
+        return deviceCategory;
+    }
+
+    public void setDeviceCategory(DeviceCategory deviceCategory) {
+        this.deviceCategory = deviceCategory;
+    }
+
+    public DeviceType getDeviceType() {
+        return deviceType;
+    }
+
+    public void setDeviceType(DeviceType deviceType) {
+        this.deviceType = deviceType;
+    }
+
+    public boolean isAvailable() {
+        return available;
+    }
+
+    public void setAvailable(boolean available) {
+        this.available = available;
+    }
+
+    public boolean isRetired() {
+        return retired;
+    }
+
+    public void setRetired(boolean retired) {
+        this.retired = retired;
+    }
 
 
 }
