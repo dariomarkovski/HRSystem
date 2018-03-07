@@ -1,17 +1,29 @@
-package com.finki.soa.group3.HRSystem.Training;
-
+package com.finki.soa.group3.HRSystem.Training.Model;
+import javax.persistence.*;
 import java.net.URL;
 
+@Entity
+@Table(name = "video")
 public class Video {
+    @Id
+    @GeneratedValue
     private long id;
     private String name;
     private URL url;
     private String description;
     private String[] tags;
 
-    public Video(long id, String name, String description, String[] tags) {
+    @JoinColumn
+    @ManyToOne
+    private Category category;
+
+    @ManyToOne
+    private Course course;
+
+    public Video(long id, String name,URL url, String description, String[] tags) {
         this.id = id;
         this.name = name;
+        this.url = url;
         this.description = description;
         this.tags = tags;
     }
