@@ -1,5 +1,7 @@
 package com.finki.soa.group3.HRSystem.model.training;
 
+import com.finki.soa.group3.HRSystem.model.Employee;
+
 import javax.persistence.*;
 import java.util.List;
 import java.util.Set;

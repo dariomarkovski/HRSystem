@@ -7,7 +7,7 @@ import com.finki.soa.group3.HRSystem.service.vacations.IVacationService;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(value = "api/vacations")
+@RequestMapping(value = "vacations")
 public class VacationController {
 
     private IVacationService vacationService;
