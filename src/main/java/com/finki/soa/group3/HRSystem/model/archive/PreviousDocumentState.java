@@ -2,6 +2,8 @@ package com.finki.soa.group3.HRSystem.model.archive;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "Document History")
@@ -12,16 +14,15 @@ public class PreviousDocumentState {
     Long id;
     @Column(nullable = false)
     LocalDateTime changedDate;
-    @Column(nullable = false)
-    Document previousState;
 
-    public PreviousDocumentState(LocalDateTime changedDate, Document previousState) {
+    @OneToMany
+    private Set<Document> documentSet;
+
+    public PreviousDocumentState(LocalDateTime changedDate) {
         this.changedDate = changedDate;
-        this.previousState = previousState;
     }
 
     public PreviousDocumentState() {
 
     }
-
 }

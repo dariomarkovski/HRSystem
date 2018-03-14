@@ -1,6 +1,10 @@
 package com.finki.soa.group3.HRSystem.model;
 
+import com.finki.soa.group3.HRSystem.model.archive.Document;
+
 import javax.persistence.*;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "person")
@@ -12,6 +16,9 @@ public class Person {
     String firstName;
     String lastName;
     String EMBG;
+
+    @OneToMany
+    private Set<Document> documents;
 
     public Person() {
 

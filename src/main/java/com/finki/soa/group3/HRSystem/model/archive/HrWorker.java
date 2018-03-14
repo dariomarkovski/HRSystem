@@ -2,24 +2,64 @@ package com.finki.soa.group3.HRSystem.model.archive;
 
 import com.finki.soa.group3.HRSystem.model.Employee;
 
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "HrPersonal")
-public class HrWorker extends Employee {
+public class HrWorker {
+
+    @Id
+    @GeneratedValue
+    Long id;
+
+    String firstName;
+    String lastName;
+    String EMBG;
 
     @OneToMany
-    List<Document> contractsSigned;
+    private Set<Document> contractsSigned;
 
     public HrWorker() {
 
     }
 
-    public HrWorker(String firstName, String lastName, String EMBG, List<Document> contractsSigned) {
-        super(firstName, lastName, EMBG);
-        this.contractsSigned = contractsSigned;
+    public HrWorker(String firstName, String lastName, String EMBG) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.EMBG = EMBG;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getEMBG() {
+        return EMBG;
+    }
+
+    public void setEMBG(String EMBG) {
+        this.EMBG = EMBG;
     }
 }

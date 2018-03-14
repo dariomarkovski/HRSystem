@@ -2,57 +2,46 @@ package com.finki.soa.group3.HRSystem.model.archive;
 
 import com.finki.soa.group3.HRSystem.model.Person;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
 
+@Entity
+@Table(name = "Document")
 public class Document {
     //id na dokumentot
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
-    //labela na dokumentot (mozhe da bide i posebna klasa)
     private String label;
-    //opis na dokumentot
 
     @Column(nullable = true)
     private String description;
-    //date na kreiranje
 
     private LocalDateTime dateOfCreation;
-    //date na istekuvanje
 
     @Column(nullable = true)
     private LocalDateTime dateOfExpiration;
-    //data koga treba da stigne notifikacija
 
     @Column(nullable = true)
     private LocalDateTime notificationDate;
-    //Kontekst na dokumentot
 
     private String context;
-    //potpisnici od HR timot dokolku gi ima
-    //@OneToMany
 
-    @Column(nullable = true)
-    private List<HrWorker> HRSignatory;
-    //potpisnici od vraboteni dokolju gi ima
-    //@OneToMany
+    @JoinColumn(nullable = false)
+    @ManyToOne
+    private HrWorker HRSignatory;
 
-    @Column(nullable = true)
-    private List<Person> ExternalSignatory;
-    //prehodna sostojba na dokumentot
-    //@OneToMany
+    @JoinColumn(nullable = false)
+    @ManyToOne
+    private Person externalSignatory;
 
-    @Column(nullable = true)
-    private List<PreviousDocumentState> previousStates;
+    @JoinColumn(nullable = false)
+    @ManyToOne
+    private PreviousDocumentState documentState;
 
     public Document() {
-
     }
 
     public Long getId() {
@@ -111,39 +100,13 @@ public class Document {
         this.context = context;
     }
 
-    public List<HrWorker> getHRSignatory() {
-        return HRSignatory;
-    }
 
-    public void setHRSignatory(List<HrWorker> HRSignatory) {
-        this.HRSignatory = HRSignatory;
-    }
-
-    public List<Person> getExternalSignatory() {
-        return ExternalSignatory;
-    }
-
-    public void setExternalSignatory(List<Person> externalSignatory) {
-        ExternalSignatory = externalSignatory;
-    }
-
-    public List<PreviousDocumentState> getPreviousStates() {
-        return previousStates;
-    }
-
-    public void setPreviousStates(List<PreviousDocumentState> previousStates) {
-        this.previousStates = previousStates;
-    }
-
-    public Document(String label, String description, LocalDateTime dateOfCreation, LocalDateTime dateOfExpiration, LocalDateTime notificationDate, String context, List<HrWorker> HRSignatory, List<Person> externalSignatory, List<PreviousDocumentState> previousStates) {
+    public Document(String label, String description, LocalDateTime dateOfCreation, LocalDateTime dateOfExpiration, LocalDateTime notificationDate, String context) {
         this.label = label;
         this.description = description;
         this.dateOfCreation = dateOfCreation;
         this.dateOfExpiration = dateOfExpiration;
         this.notificationDate = notificationDate;
         this.context = context;
-        this.HRSignatory = HRSignatory;
-        ExternalSignatory = externalSignatory;
-        this.previousStates = previousStates;
     }
 }
