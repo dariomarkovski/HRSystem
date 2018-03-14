@@ -7,7 +7,6 @@ import java.time.LocalDateTime;
 import java.util.Optional;
 
 public interface DocumentService {
-
     Document save(Document document, String date);
 
     Optional<Document> findOne(Long id) throws DocumentNotFoundException;
@@ -27,5 +26,4 @@ public interface DocumentService {
     Iterable<Document> findByDateOfCreationMonthAndLabel(Integer month, String label);
 
     //Iterable<Document> findByDateOfExpiraionBefore(LocalDateTime date);
-
 }

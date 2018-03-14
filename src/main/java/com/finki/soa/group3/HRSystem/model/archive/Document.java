@@ -31,15 +31,15 @@ public class Document {
 
     @JoinColumn(nullable = false)
     @ManyToOne
-    private HrWorker HRSignatory;
+    private HrWorker signaturesFromHR;
 
     @JoinColumn(nullable = false)
     @ManyToOne
-    private Person externalSignatory;
+    private Person signatures;
 
     @JoinColumn(nullable = false)
     @ManyToOne
-    private PreviousDocumentState documentState;
+    private PreviousDocumentState previousDocumentState;
 
     public Document() {
     }

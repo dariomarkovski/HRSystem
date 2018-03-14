@@ -15,7 +15,7 @@ public class PreviousDocumentState {
     @Column(nullable = false)
     LocalDateTime changedDate;
 
-    @OneToMany
+    @OneToMany(mappedBy = "previousDocumentState")
     private Set<Document> documentSet;
 
     public PreviousDocumentState(LocalDateTime changedDate) {

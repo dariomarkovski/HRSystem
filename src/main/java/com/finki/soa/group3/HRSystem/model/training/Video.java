@@ -1,4 +1,5 @@
 package com.finki.soa.group3.HRSystem.model.training;
+
 import javax.persistence.*;
 import java.net.URL;
 
@@ -17,32 +18,17 @@ public class Video {
     @ManyToOne
     private Category category;
 
+    @JoinColumn
     @ManyToOne
     private Course course;
 
-    public Video(long id, String name,URL url, String description, String[] tags) {
+    public Video(long id, String name, URL url, String description, String[] tags) {
         this.id = id;
         this.name = name;
         this.url = url;
         this.description = description;
         this.tags = tags;
     }
-
-    public void CreateVideo(){
-        System.out.println("Video "+ this.name +" was created");
-        return ;
-    }
-
-    public void DeleteVideo(){
-        System.out.println("Video"+ this.name +" was deleted");
-        return ;
-    }
-
-    public void EditVideo(){
-        System.out.println("Video"+ this.name +" was edited");
-        return ;
-    }
-
 
     public URL getUrl() {
 
@@ -54,7 +40,6 @@ public class Video {
     }
 
     public long getId() {
-
         return id;
     }
 

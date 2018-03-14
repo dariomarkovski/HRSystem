@@ -17,7 +17,7 @@ public class Person {
     String lastName;
     String EMBG;
 
-    @OneToMany
+    @OneToMany(mappedBy = "signatures")
     private Set<Document> documents;
 
     public Person() {

@@ -18,7 +18,7 @@ public class HrWorker {
     String lastName;
     String EMBG;
 
-    @OneToMany
+    @OneToMany(mappedBy = "signaturesFromHR")
     private Set<Document> contractsSigned;
 
     public HrWorker() {
