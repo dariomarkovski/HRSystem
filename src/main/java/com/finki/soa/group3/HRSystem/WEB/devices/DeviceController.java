@@ -5,7 +5,7 @@ import com.finki.soa.group3.HRSystem.service.devices.DeviceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-@RestController
+@RestController(value = "/devices")
 @CrossOrigin
 public class DeviceController {
 

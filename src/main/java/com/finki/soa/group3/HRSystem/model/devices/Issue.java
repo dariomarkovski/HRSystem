@@ -2,6 +2,8 @@ package com.finki.soa.group3.HRSystem.model.devices;
 
 import javax.persistence.*;
 
+@Entity
+@Table(name = "Issue")
 public class Issue {
 
     @Id
