@@ -5,7 +5,7 @@ import com.finki.soa.group3.HRSystem.model.training.Course;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-@Repository
 public interface CourseRepository extends CrudRepository<Course, Long> {
     Iterable<Course> findAllBy(Category category);
+    Iterable<Course> findCourseById(long id);
 }

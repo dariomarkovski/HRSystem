@@ -7,11 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import javax.transaction.Transactional;
 
-@Repository
 public interface CategoryRepository extends CrudRepository<Category, Long> {
-   // Iterable<Category> findAllByCategory(Video video);
-    //  Iterable<Category> findAllByCategory(Course course);
-
     Iterable<Category> findAllById(long categoryId);
     Iterable<Category> findAllByCourses(Course course);
 

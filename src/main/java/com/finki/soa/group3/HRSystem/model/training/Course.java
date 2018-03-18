@@ -12,11 +12,14 @@ public class Course {
     @Id
     @GeneratedValue
     private long id;
+    @JoinColumn(nullable = false)
     private String name;
+    @JoinColumn(nullable = false)
     private String description;
+    @JoinColumn(nullable = false)
     private String[] tags;
+    @JoinColumn(nullable = false)
     private boolean status; // active/passive
-    private Set<Employee> employees;
 
     @OneToMany(mappedBy = "Course")
     private List<Chapter> chapterList;
@@ -24,11 +27,9 @@ public class Course {
     @OneToMany (mappedBy = "Video")
     private List<Video> videos;
 
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "courses_employees", joinColumns = @JoinColumn(name = "course_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "employee_id", referencedColumnName = "id"))
-    public Set<Employee> getEmployees() {
-        return employees;
-    }
+    @JoinColumn(nullable = false)
+    @ManyToOne
+    private Category category;
 
 
     public Course(long id, String name, String description, String[] tags, boolean status) {

@@ -4,17 +4,19 @@ import javax.persistence.*;
 import java.net.URL;
 
 @Entity
-@Table(name = "video")
+@Table(name = "Video")
 public class Video {
     @Id
     @GeneratedValue
     private long id;
+    @JoinColumn(nullable = false)
     private String name;
+    @JoinColumn(nullable = false)
     private URL url;
+    @JoinColumn(nullable = false)
     private String description;
-    private String[] tags;
 
-    @JoinColumn
+    @JoinColumn(nullable = false)
     @ManyToOne
     private Category category;
 
@@ -27,7 +29,6 @@ public class Video {
         this.name = name;
         this.url = url;
         this.description = description;
-        this.tags = tags;
     }
 
     public URL getUrl() {
@@ -63,11 +64,4 @@ public class Video {
         this.description = description;
     }
 
-    public String[] getTags() {
-        return tags;
-    }
-
-    public void setTags(String[] tags) {
-        this.tags = tags;
-    }
 }

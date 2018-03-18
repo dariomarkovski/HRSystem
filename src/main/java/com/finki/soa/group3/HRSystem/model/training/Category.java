@@ -4,17 +4,20 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
+@Table(name = "Category")
 public class Category {
     @Id
     @GeneratedValue
     private long id;
+    @Column(nullable = true)
     private String name;
+    @Column(nullable = true)
     private String description;
 
-    @OneToMany (mappedBy = "Video")
+    @OneToMany (mappedBy = "Category")
     private List<Video> videos;
 
-    @OneToMany (mappedBy = "Course")
+    @OneToMany (mappedBy = "Category")
     private List<Course> courses;
 
 
