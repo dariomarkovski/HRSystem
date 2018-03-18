@@ -8,8 +8,8 @@ import org.springframework.stereotype.Repository;
 import javax.transaction.Transactional;
 
 public interface CategoryRepository extends CrudRepository<Category, Long> {
-    Iterable<Category> findAllById(long categoryId);
-    Iterable<Category> findAllByCourses(Course course);
+    Iterable<Category> findById(long categoryId);
+    Iterable<Category> findByCourses(Course course);
 
     @Transactional
     long deleteById(long categoryId);
