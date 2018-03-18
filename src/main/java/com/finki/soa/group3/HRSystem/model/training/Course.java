@@ -12,19 +12,20 @@ public class Course {
     @Id
     @GeneratedValue
     private long id;
-    @JoinColumn(nullable = false)
+
+    @Column(nullable =  false)
     private String name;
-    @JoinColumn(nullable = false)
+    @Column(nullable =  false)
     private String description;
-    @JoinColumn(nullable = false)
+    @Column(nullable =  false)
     private String[] tags;
-    @JoinColumn(nullable = false)
+    @Column(nullable =  false)
     private boolean status; // active/passive
 
-    @OneToMany(mappedBy = "Course")
+    @OneToMany(mappedBy = "course")
     private List<Chapter> chapterList;
 
-    @OneToMany (mappedBy = "Video")
+    @OneToMany (mappedBy = "course")
     private List<Video> videos;
 
     @JoinColumn(nullable = false)
@@ -38,6 +39,10 @@ public class Course {
         this.description = description;
         this.tags = tags;
         this.status = status;
+    }
+
+    public Course() {
+
     }
 
     public void CreateCourse(){

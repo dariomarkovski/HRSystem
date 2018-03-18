@@ -16,14 +16,4 @@ public interface DocumentService {
     Iterable<Document> findByLabel(String label);
 
     Iterable<Document> findAll();
-
-    Iterable<Document> findByDateOfCreationMonth(Integer month);
-
-    Iterable<Document> findByDateOfCreationYear(Integer year);
-
-    Iterable<Document> findByDateOfCreationYearAndLabel(Integer year, String label);
-
-    Iterable<Document> findByDateOfCreationMonthAndLabel(Integer month, String label);
-
-    //Iterable<Document> findByDateOfExpiraionBefore(LocalDateTime date);
 }

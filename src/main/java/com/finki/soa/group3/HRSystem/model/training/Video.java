@@ -31,6 +31,9 @@ public class Video {
         this.description = description;
     }
 
+    public Video() {
+
+    }
     public URL getUrl() {
 
         return url;

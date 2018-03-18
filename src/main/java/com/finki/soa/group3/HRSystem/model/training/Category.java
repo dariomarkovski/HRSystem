@@ -14,12 +14,22 @@ public class Category {
     @Column(nullable = true)
     private String description;
 
-    @OneToMany (mappedBy = "Category")
+    @OneToMany (mappedBy = "category")
     private List<Video> videos;
 
-    @OneToMany (mappedBy = "Category")
+    @OneToMany (mappedBy = "category")
     private List<Course> courses;
 
+    public Category() {
+
+    }
+
+    public Category(String name, String description, List<Video> videos, List<Course> courses) {
+        this.name = name;
+        this.description = description;
+        this.videos = videos;
+        this.courses = courses;
+    }
 
     public long getId() {
         return id;

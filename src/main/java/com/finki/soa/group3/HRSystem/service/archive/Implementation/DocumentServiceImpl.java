@@ -53,25 +53,4 @@ public class DocumentServiceImpl implements DocumentService{
         return this.documentRepository.findAll();
     }
 
-    @Override
-    public Iterable<Document> findByDateOfCreationMonth(Integer month) {
-        return this.documentRepository.findAllByDateOfCreationMonthValue(month);
-    }
-
-    @Override
-    public Iterable<Document> findByDateOfCreationYear(Integer year) {
-        return this.documentRepository.findAllByDateOfCreationYear(year);
-    }
-
-    @Override
-    public Iterable<Document> findByDateOfCreationYearAndLabel(Integer year, String label) {
-        return this.documentRepository.findByDateOfCreationYearAndLabel(year,label);
-    }
-
-    @Override
-    public Iterable<Document> findByDateOfCreationMonthAndLabel(Integer month, String label) {
-        return this.documentRepository.findByDateOfCreationMonthValueAndLabel(month,label);
-    }
-
-
 }

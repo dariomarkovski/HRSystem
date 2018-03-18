@@ -43,29 +43,4 @@ public class DocumentController {
         return documentService.findAll();
     }
 
-    @GetMapping(value = "/month/{month}")
-    Iterable<Document> findByDateOfCreationMonth(@PathVariable("month") Integer month) {
-        return documentService.findByDateOfCreationMonth(month);
-    }
-
-    @GetMapping(value = "/year/{year}")
-    Iterable<Document> findByDateOfCreationYear(@PathVariable("year") Integer year) {
-        return documentService.findByDateOfCreationYear(year);
-    }
-
-    @GetMapping(value = "/year/label/{year}/{label}")
-    Iterable<Document> findByDateOfCreationYearAndLabel(@PathVariable("year") Integer year, @PathVariable("label") String label) {
-        return documentService.findByDateOfCreationYearAndLabel(year,label);
-    }
-
-    @GetMapping(value = "/month/label/{month}/{label}")
-    Iterable<Document> findByDateOfCreationMonthAndLabel(@PathVariable("month") Integer month, @PathVariable("label") String label) {
-        return documentService.findByDateOfCreationMonthAndLabel(month, label);
-    }
-
-
-    /*Iterable<Document> findByDateOfExpiraionBefore(LocalDateTime date) {
-        return null;
-    }*/
-
 }

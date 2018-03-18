@@ -37,9 +37,6 @@ public class Document {
     @ManyToOne
     private Person signatures;
 
-    @JoinColumn(nullable = false)
-    @ManyToOne
-    private PreviousDocumentState previousDocumentState;
 
     public Document() {
     }

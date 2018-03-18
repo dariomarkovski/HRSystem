@@ -17,4 +17,8 @@ public class Chapter {
     public Chapter(Course course) {
         this.course = course;
     }
+
+    public Chapter () {
+
+    }
 }
