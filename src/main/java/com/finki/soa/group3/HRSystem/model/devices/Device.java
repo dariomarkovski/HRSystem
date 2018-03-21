@@ -37,7 +37,7 @@ public class Device {
     @Column(nullable = false)
     private boolean available;
 
-    @JoinColumn(nullable = false)
+    @JoinColumn(nullable = true)
     @ManyToOne
     private Employee userOfDevice;
 
