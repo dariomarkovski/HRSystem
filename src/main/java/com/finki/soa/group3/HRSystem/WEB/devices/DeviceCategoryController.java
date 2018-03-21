@@ -5,7 +5,8 @@ import com.finki.soa.group3.HRSystem.service.devices.DeviceCategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-@RestController(value = "/deviceCategory")
+@RestController
+@RequestMapping(value = "/deviceCategories")
 @CrossOrigin
 public class DeviceCategoryController {
 
