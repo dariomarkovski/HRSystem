@@ -29,11 +29,27 @@ public class Document {
 
     private String context;
 
+    public HrWorker getSignaturesFromHR() {
+        return signaturesFromHR;
+    }
+
     @JoinColumn(nullable = false)
     @ManyToOne
     private HrWorker signaturesFromHR;
 
-    @JoinColumn(nullable = false)
+    public Person getSignatures() {
+        return signatures;
+    }
+
+    public void setSignaturesFromHR(HrWorker signaturesFromHR) {
+        this.signaturesFromHR = signaturesFromHR;
+    }
+
+    public void setSignatures(Person signatures) {
+        this.signatures = signatures;
+    }
+
+    @JoinColumn(nullable = true)
     @ManyToOne
     private Person signatures;
 

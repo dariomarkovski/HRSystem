@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 import java.util.Optional;
 
 @RestController
-@RequestMapping(value = "documents")
+@RequestMapping(value = "/documents")
 public class DocumentController {
     private final DocumentService documentService;
 
