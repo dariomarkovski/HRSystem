@@ -23,22 +23,22 @@ public class DocumentController {
         return this.documentService.save(document,date);
     }
 
-    @GetMapping
-    Optional<Document> findOne(Long id) throws DocumentNotFoundException {
+    @GetMapping(value = "/id/{id}")
+    Optional<Document> findOne(@PathVariable("id") Long id) throws DocumentNotFoundException {
         return this.documentService.findOne(id);
     }
 
-    @DeleteMapping
-    void delete(Long id) {
-        this.documentService.delete(id);
-    }
-
-    @GetMapping(value = "/{label}")
+    @GetMapping(value = "/label/{label}")
     Iterable<Document> findByLabel(@PathVariable("label") String label) {
         return documentService.findByLabel(label);
     }
 
-    @GetMapping(value = "/all")
+    @DeleteMapping(value = "/{id}")
+    void delete(@PathVariable("id") Long id) {
+        this.documentService.delete(id);
+    }
+
+    @GetMapping
     Iterable<Document> findAll() {
         return documentService.findAll();
     }

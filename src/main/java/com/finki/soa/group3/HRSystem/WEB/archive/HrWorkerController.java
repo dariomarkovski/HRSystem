@@ -1,10 +1,12 @@
 package com.finki.soa.group3.HRSystem.WEB.archive;
 
 import com.finki.soa.group3.HRSystem.model.archive.HrWorker;
-import com.finki.soa.group3.HRSystem.service.archive.person.HrWorkerService;
+import com.finki.soa.group3.HRSystem.model.archive.exceptions.HrWorkerNotFoundException;
+import com.finki.soa.group3.HRSystem.service.archive.HrWorkerService;
 import org.springframework.web.bind.annotation.*;
 
-@RestController(value = "/hrworker")
+@RestController
+@RequestMapping(value = "/hrworker")
 public class HrWorkerController {
 
     private final HrWorkerService hrWorkerService;
@@ -13,17 +15,22 @@ public class HrWorkerController {
         this.hrWorkerService = hrWorkerService;
     }
 
-    @PostMapping(value = "/addNewHrWorker")
+    @PostMapping
     HrWorker save(@ModelAttribute HrWorker person) {
         return this.hrWorkerService.save(person);
     }
 
-    @DeleteMapping(value = "/deleteById/{id}")
+    @GetMapping(value = "/{id}")
+    HrWorker getById(@PathVariable("id") Long id) throws HrWorkerNotFoundException {
+        return this.hrWorkerService.getById(id);
+    }
+
+    @DeleteMapping(value = "/{id}")
     void delete(@PathVariable("id") Long id){
         this.hrWorkerService.delete(id);
     }
 
-    @GetMapping(value = "/getAllHrWorkers")
+    @GetMapping
     Iterable<HrWorker> getAllHrWorkers(){
         return this.hrWorkerService.getAllHrWorkers();
     }

@@ -3,15 +3,15 @@ package com.finki.soa.group3.HRSystem.model.archive;
 import com.finki.soa.group3.HRSystem.model.Person;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Entity
 @Table(name = "Document")
 public class Document {
     //id na dokumentot
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.TABLE)
     private Long id;
 
     private String label;
@@ -22,37 +22,20 @@ public class Document {
     private LocalDateTime dateOfCreation;
 
     @Column(nullable = true)
-    private LocalDateTime dateOfExpiration;
+    private LocalDate dateOfExpiration;
 
     @Column(nullable = true)
     private LocalDateTime notificationDate;
 
     private String context;
 
-    public HrWorker getSignaturesFromHR() {
-        return signaturesFromHR;
-    }
-
     @JoinColumn(nullable = false)
     @ManyToOne
     private HrWorker signaturesFromHR;
 
-    public Person getSignatures() {
-        return signatures;
-    }
-
-    public void setSignaturesFromHR(HrWorker signaturesFromHR) {
-        this.signaturesFromHR = signaturesFromHR;
-    }
-
-    public void setSignatures(Person signatures) {
-        this.signatures = signatures;
-    }
-
     @JoinColumn(nullable = true)
     @ManyToOne
     private Person signatures;
-
 
     public Document() {
     }
@@ -89,11 +72,11 @@ public class Document {
         this.dateOfCreation = dateOfCreation;
     }
 
-    public LocalDateTime getDateOfExpiration() {
+    public LocalDate getDateOfExpiration() {
         return dateOfExpiration;
     }
 
-    public void setDateOfExpiration(LocalDateTime dateOfExpiration) {
+    public void setDateOfExpiration(LocalDate dateOfExpiration) {
         this.dateOfExpiration = dateOfExpiration;
     }
 
@@ -113,8 +96,23 @@ public class Document {
         this.context = context;
     }
 
+    public HrWorker getSignaturesFromHR() {
+        return signaturesFromHR;
+    }
 
-    public Document(String label, String description, LocalDateTime dateOfCreation, LocalDateTime dateOfExpiration, LocalDateTime notificationDate, String context) {
+    public Person getSignatures() {
+        return signatures;
+    }
+
+    public void setSignaturesFromHR(HrWorker signaturesFromHR) {
+        this.signaturesFromHR = signaturesFromHR;
+    }
+
+    public void setSignatures(Person signatures) {
+        this.signatures = signatures;
+    }
+
+    public Document(String label, String description, LocalDateTime dateOfCreation, LocalDate dateOfExpiration, LocalDateTime notificationDate, String context) {
         this.label = label;
         this.description = description;
         this.dateOfCreation = dateOfCreation;
@@ -122,4 +120,5 @@ public class Document {
         this.notificationDate = notificationDate;
         this.context = context;
     }
+
 }

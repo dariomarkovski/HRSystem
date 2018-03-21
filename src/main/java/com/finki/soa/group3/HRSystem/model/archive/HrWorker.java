@@ -11,7 +11,7 @@ import java.util.Set;
 public class HrWorker {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.TABLE)
     Long id;
 
     String firstName;

@@ -1,10 +1,13 @@
-package com.finki.soa.group3.HRSystem.service.archive.person.Implementation;
+package com.finki.soa.group3.HRSystem.service.archive.Implementation;
 
 import com.finki.soa.group3.HRSystem.model.Person;
+import com.finki.soa.group3.HRSystem.model.archive.exceptions.PersonNotFoundException;
 import com.finki.soa.group3.HRSystem.persistence.person.PersonRepository;
-import com.finki.soa.group3.HRSystem.service.archive.person.PersonService;
+import com.finki.soa.group3.HRSystem.service.archive.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Service
 public class PersonServiceImplementation implements PersonService{
@@ -17,7 +20,13 @@ public class PersonServiceImplementation implements PersonService{
 
     @Override
     public Person save(Person person) {
-     return this.repository.save(person);
+        return repository.save(person);
+    }
+
+    @Override
+    public Person getById(Long id) throws PersonNotFoundException {
+       Optional<Person> person = this.repository.findById(id);
+       return person.orElseThrow(() -> new PersonNotFoundException(id));
     }
 
     @Override
@@ -27,6 +36,6 @@ public class PersonServiceImplementation implements PersonService{
 
     @Override
     public Iterable<Person> getAllPersons() {
-        return this.repository.findAll();
+        return repository.findAll();
     }
 }

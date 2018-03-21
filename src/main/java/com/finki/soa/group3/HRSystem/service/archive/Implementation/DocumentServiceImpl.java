@@ -1,5 +1,6 @@
 package com.finki.soa.group3.HRSystem.service.archive.Implementation;
 
+import com.finki.soa.group3.HRSystem.model.Person;
 import com.finki.soa.group3.HRSystem.model.archive.Document;
 import com.finki.soa.group3.HRSystem.model.archive.HrWorker;
 import com.finki.soa.group3.HRSystem.model.archive.exceptions.DocumentNotFoundException;
@@ -9,6 +10,7 @@ import com.finki.soa.group3.HRSystem.persistence.person.PersonRepository;
 import com.finki.soa.group3.HRSystem.service.archive.DocumentService;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Optional;
@@ -28,7 +30,7 @@ public class DocumentServiceImpl implements DocumentService{
 
     @Override
     public Document save(Document document, String date) {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
         if(document.getSignaturesFromHR()==null){
             HrWorker hrWorker = new HrWorker();
             Long num = SEQUENCE;
@@ -36,13 +38,23 @@ public class DocumentServiceImpl implements DocumentService{
             hrWorker.setEMBG(String.valueOf(num));
             hrWorker.setFirstName("RandomName"+String.valueOf(num));
             hrWorker.setLastName("RandomLastName"+String.valueOf(num));
-            SEQUENCE++;
             hrWorkerRepository.save(hrWorker);
             document.setSignaturesFromHR(hrWorker);
         }
-        LocalDateTime expirationDate = LocalDateTime.parse(date,formatter);
+        if(document.getSignatures()==null) {
+            Person person = new Person();
+            Long num = SEQUENCE;
+            num++;
+            person.setEMBG(String.valueOf(num));
+            person.setFirstName("RandomName"+String.valueOf(num));
+            person.setLastName("RandomLastName"+String.valueOf(num));
+            personRepository.save(person);
+            document.setSignatures(person);
+        }
+        SEQUENCE++;
+        LocalDate ld =LocalDate.parse(date, formatter);
         document.setDateOfCreation(LocalDateTime.now());
-        document.setDateOfExpiration(expirationDate);
+        document.setDateOfExpiration(ld);
         return this.documentRepository.save(document);
     }
 
