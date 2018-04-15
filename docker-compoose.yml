@@ -12,7 +12,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
 
   app:
-    image: finki_soa/hrSystem
+    image: finki_soa/hrsystem
     labels:
       - "traefik.port=8080"
       - "traefik.backend=app"
