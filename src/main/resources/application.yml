@@ -3,10 +3,10 @@ spring:
   profiles: default
 
 ---
-spring:
-  datasource:
-    driverClassName: org.h2.Driver
-    url: jdbc:h2:mem:sampletest;MODE=MySQL
+spring.datasource.url: jdbc:postgresql://ec2-54-195-246-59.eu-west-1.compute.amazonaws.com:5432/d1uvs64rr2cg7m?sslmode=require
+spring.datasource.username: ryddkcrqxvgjww
+spring.datasource.password: b4a9fbfe262c2c9f031ac11e38fb2629685fcb3efa9acac46dd24352a7f4bb19
+spring.datasource.driver-class-name: org.postgresql.Driver
 
 ---
 spring:
@@ -14,7 +14,7 @@ spring:
 
 spring.jpa:
   hibernate:
-    ddl-auto: create-drop
+    ddl-auto: update
 
 ---
 spring:
